@@ -11,7 +11,7 @@ source:
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -25,6 +25,7 @@ requirements:
     - maturin
   run:
     - python
+    - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.11") }}  # [osx and x86_64]
 
 test:
   imports:
