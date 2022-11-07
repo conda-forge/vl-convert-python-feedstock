@@ -11,13 +11,14 @@ source:
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
-  number: 3
+  number: 4
 
 requirements:
   build:
     - {{ compiler('c') }}        # [not win]
     - {{ compiler('m2w64_c') }}  # [win]
     - make                       # [not win]
+    - python                     # [build_platform != target_platform]
     - rust >=1.64.0
   host:
     - python
