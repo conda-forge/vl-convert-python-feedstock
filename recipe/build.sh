@@ -6,4 +6,4 @@ fi
 
 maturin build --release --strip --manylinux off "${_xtra_maturin_args[@]}"
 
-"${PYTHON}" -m pip install $SRC_DIR/target/wheels/vl_convert_python*.whl --no-deps -vv
+python -m pip install $SRC_DIR/target/wheels/vl_convert_python*.whl --no-deps -vv
