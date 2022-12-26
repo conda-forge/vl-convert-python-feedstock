@@ -10,8 +10,7 @@ source:
   sha256: f1c7cb9b9071712519c19b26e0815709b782d97ae3cb6953e240a91b708a01e1
 
 build:
-  script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -19,8 +18,10 @@ requirements:
     - {{ compiler('m2w64_c') }}  # [win]
     - make                       # [not win]
     - {{ compiler('rust') }}
+    - maturin                    # [build_platform != target_platform]
   host:
-    - python
+    - python                                 # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - pip
     - maturin
   run:
