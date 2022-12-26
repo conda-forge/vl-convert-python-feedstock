@@ -1,14 +1,7 @@
-declare -a _xtra_maturin_args
+## Set conda CC as custom CC in Rust
+#export CARGO_TARGET_X86_64_UNKNOWN_LINUX_GNU_LINKER=$CC
+#export CARGO_TARGET_X86_64_APPLE_DARWIN_LINKER=$CC
+#export CARGO_TARGET_AARCH64_APPLE_DARWIN_LINKER=$CC
 
-# Set conda CC as custom CC in Rust
-export CARGO_TARGET_X86_64_UNKNOWN_LINUX_GNU_LINKER=$CC
-export CARGO_TARGET_X86_64_APPLE_DARWIN_LINKER=$CC
-export CARGO_TARGET_AARCH64_APPLE_DARWIN_LINKER=$CC
-
-if [ "$target_platform" = "osx-arm64" ] && [ "$CONDA_BUILD_CROSS_COMPILATION" = "1" ] ; then
-  maturin build --release --strip --target=aarch64-apple-darwin
-else
-  maturin build --release --strip
-fi
-
-python -m pip install $SRC_DIR/target/wheels/vl_convert_python*.whl --no-deps -vv
+maturin build --release --strip --manylinux off --interpreter="${PYTHON}"
+"${PYTHON}" -m pip install $SRC_DIR/target/wheels/vl_convert_python*.whl --no-deps -vv
