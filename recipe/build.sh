@@ -8,10 +8,10 @@ echo Original target is $TARGET
 if [ "$target_platform" = "osx-arm64" ] && [ "$CONDA_BUILD_CROSS_COMPILATION" = "1" ] ; then
   # Manually override TARGET, which rusty_v8 uses to determine which share libraries to
   # link against
-  export TARGET = "aarch64-apple-darwin"
+  export TARGET="aarch64-apple-darwin"
+  maturin build --release --target aarch64-apple-darwin --strip --manylinux off --interpreter="${PYTHON}"
+else
+  maturin build --release --strip --manylinux off --interpreter="${PYTHON}"
 fi
 
-echo Final target is $TARGET
-
-maturin build --release --strip --manylinux off --interpreter="${PYTHON}"
 "${PYTHON}" -m pip install $SRC_DIR/target/wheels/vl_convert_python*.whl --no-deps -vv
