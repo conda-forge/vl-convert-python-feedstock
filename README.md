@@ -1,11 +1,11 @@
-About vl-convert-python
-=======================
+About vl-convert-python-feedstock
+=================================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/vl-convert-python-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/jonmmease/vl-convert
 
 Package license: BSD-3-Clause
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/vl-convert-python-feedstock/blob/main/LICENSE.txt)
 
 Summary: Convert Vega-Lite chart specifications to SVG, PNG, or Vega
 
