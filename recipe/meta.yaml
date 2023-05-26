@@ -1,5 +1,5 @@
 {% set name = "vl-convert-python" %}
-{% set version = "0.10.0" %}
+{% set version = "0.10.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/vl_convert_python-{{ version }}.tar.gz
-  sha256: 15ab1068eb9457bd9d344a0cc046594a7ee7bb02d1c38f80972d329254960877
+  sha256: 232212e89ad04303766d36dc1cc93a6925424480b0a787ca55ff3360199f3775
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
