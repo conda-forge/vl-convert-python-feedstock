@@ -13,9 +13,12 @@ source:
 
 
 build:
-  script: {{ PYTHON }} -m pip install . -vv     # [not arm64]
-  script: {{ PYTHON }} -m pip install *.whl -vv # [arm64]
-  number: 0
+  script: {{ PYTHON }} -m pip install . -vv       # [not arm64]
+  script: {{ PYTHON }} -m pip install *.whl -vv   # [arm64]
+  number: 1
+  binary_relocation: False                # [arm64]
+  detect_binary_files_with_prefix: False  # [arm64]
+  ignore_prefix_files: True               # [arm64]
 
 requirements:
   build:
