@@ -50,9 +50,9 @@ about:
   license: BSD-3-Clause
   license_file:
     - LICENSE
-    - thirdparty_font.md
-    - thirdparty_javascript.md
-    - thirdparty_rust.yaml
+    - thirdparty_font.md        # [not arm64]
+    - thirdparty_javascript.md  # [not arm64]
+    - thirdparty_rust.yaml      # [not arm64]
 
 extra:
   recipe-maintainers:
