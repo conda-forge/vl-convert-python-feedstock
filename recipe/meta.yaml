@@ -13,7 +13,8 @@ source:
 
 
 build:
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . -vv     # [not arm64]
+  script: {{ PYTHON }} -m pip install *.whl -vv # [arm64]
   number: 0
 
 requirements:
