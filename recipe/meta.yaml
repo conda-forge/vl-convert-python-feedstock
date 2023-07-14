@@ -14,7 +14,9 @@ source:
 build:
   script: {{ PYTHON }} -m pip install . -vv
   number: 1
-  binary_relocation: false
+  binary_relocation: False                # [arm64]
+  detect_binary_files_with_prefix: False  # [arm64]
+  ignore_prefix_files: True               # [arm64]
 
 requirements:
   build:
