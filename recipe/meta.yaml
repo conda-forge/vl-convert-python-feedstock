@@ -6,8 +6,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/vl_convert_python-{{ version }}.tar.gz
-  sha256: 3e2db75b9236f1f828e38011ae05c7ad6c25fddc42eec70e5bc1cd2e7b7f6bdc
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/vl_convert_python-{{ version }}.tar.gz  # [not arm64]
+  sha256: 3e2db75b9236f1f828e38011ae05c7ad6c25fddc42eec70e5bc1cd2e7b7f6bdc                              # [not arm64]
+  url: https://files.pythonhosted.org/packages/f7/1c/7b6088b4004a7e0d8dee5fa770a6408bea624034cd36a5ba500d4017465b/{{ name }}-{{ version }}-cp37-abi3-macosx_11_0_arm64.whl  # [arm64]
+  sha256: 9136510d3ffe9d8f330bec186aeb55f80a14a9fb11b44b435a56cd5f73f829d4  # [arm64]
+
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
