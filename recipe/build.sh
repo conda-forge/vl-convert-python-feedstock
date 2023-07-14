@@ -1,3 +1,3 @@
 ls -la
-python -m pip install . -vv
+python -m pip install ./*.whl -vv
 echo "Pip install complete"
