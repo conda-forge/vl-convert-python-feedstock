@@ -8,7 +8,7 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/vl_convert_python-{{ version }}.tar.gz  # [not arm64]
   sha256: a2279a6a4b8e5aefa713ecc1f999d684656a6e37fca1c25114c66def3e867f14                              # [not arm64]
-  url: https://files.pythonhosted.org/packages/f7/1c/7ceb521a481acd6f5f420a03b72b2a3f61adf5ac114402bb3afca23d2666/vl_convert_python-{{ version }}-cp37-abi3-macosx_11_0_arm64.whl  # [arm64]
+  url: https://files.pythonhosted.org/packages/62/d2/7ceb521a481acd6f5f420a03b72b2a3f61adf5ac114402bb3afca23d2666/vl_convert_python-{{ version }}-cp37-abi3-macosx_11_0_arm64.whl  # [arm64]
   sha256: 02d6af605b4c2265066a28ac965a7498a6059a653b67274ad655beb5e4ddc393  # [arm64]
 
 build:
