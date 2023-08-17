@@ -24,6 +24,7 @@ requirements:
     - {{ compiler('c') }}        # [not win]
     - {{ compiler('m2w64_c') }}  # [win]
     - make                       # [not win]
+    - cmake
     - rust >=1.64.0
     - python                     # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
