@@ -1,5 +1,5 @@
 {% set name = "vl-convert-python" %}
-{% set version = "0.13.1" %}
+{% set version = "0.14.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/vl_convert_python-{{ version }}.tar.gz  # [not arm64]
-  sha256: d70a608257dd6b5b782d96cccebfe7289992e522e47a8bebb7d928253ca8b396                              # [not arm64]
-  url: https://files.pythonhosted.org/packages/01/25/60b8c323f7184cb5537665e405217853cfd4f9501db0c7aada1ae564ef5e/vl_convert_python-{{ version }}-cp37-abi3-macosx_11_0_arm64.whl  # [arm64]
-  sha256: fdee863e96ebae784a6497a5a8976124febfe4a93d766fa41db973f85d369003  # [arm64]
+  sha256: 8d3d63d7c8e446cb2e9bf2209513b3c608805152acdf50275a6f430fa18d6613                              # [not arm64]
+  url: https://files.pythonhosted.org/packages/6d/0a/3a7de8dfe3ee3fda429e6642a2f379ec51504ec9027deaf30942a902f19d/vl_convert_python-{{ version }}-cp37-abi3-macosx_11_0_arm64.whl  # [arm64]
+  sha256: 9122ebca0a8fe54492019b395acca618595fc7b2f1d09a0e77cd0fbcd471b1a8  # [arm64]
 
 build:
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . -vv       # [not arm64]
   script: cp vl_convert_python*/license_files/LICENSE . && {{ PYTHON }} -m pip install *.whl -vv   # [arm64]
   binary_relocation: False                # [arm64]
@@ -28,6 +28,7 @@ requirements:
     - rust >=1.64.0
     - python                     # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+    - protobuf
   host:
     - python
     - pip
@@ -49,10 +50,11 @@ about:
   summary: Convert Vega-Lite chart specifications to SVG, PNG, or Vega
   license: BSD-3-Clause
   license_file:
-    - LICENSE
-    - thirdparty_font.md        # [not arm64]
-    - thirdparty_javascript.md  # [not arm64]
-    - thirdparty_rust.yaml      # [not arm64]
+    - LICENSE                                     # [arm64]
+    - vl-convert-python/LICENSE                   # [not arm64]
+    - vl-convert-python/thirdparty_font.md        # [not arm64]
+    - vl-convert-python/thirdparty_javascript.md  # [not arm64]
+    - vl-convert-python/thirdparty_rust.yaml      # [not arm64]
 
 extra:
   recipe-maintainers:
