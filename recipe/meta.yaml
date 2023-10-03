@@ -28,6 +28,7 @@ requirements:
     - rust >=1.64.0
     - python                     # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+    - protobuf
   host:
     - python
     - pip
