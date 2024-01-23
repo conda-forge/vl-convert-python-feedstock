@@ -1,5 +1,5 @@
 {% set name = "vl-convert-python" %}
-{% set version = "1.2.1" %}
+{% set version = "1.2.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,9 +7,9 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/vl_convert_python-{{ version }}.tar.gz  # [not arm64]
-  sha256: 8cde0690434b6ece26df0206bb7dfc76c9b3cea73d7085a1ced59ccb3526a1c6                              # [not arm64]
-  url: https://files.pythonhosted.org/packages/74/ff/3033b8898ba80cf464739bc3cd0780ebe38cf69949d0388dd3ecc004e61f/vl_convert_python-{{ version }}-cp37-abi3-macosx_11_0_arm64.whl  # [arm64]
-  sha256: 15163ba71e528f1a1a7f46918098865ef620e8a5134b7d00fc14ac8e79b5fea1  # [arm64]
+  sha256: dbb93e1b0b8dbc8535bc0cf07d5ff2e61de6ee7b3ca435aab6652d5c09fe6e64                              # [not arm64]
+  url: https://files.pythonhosted.org/packages/59/77/af0098fe0631dcfb3f942e7da693f262c1a47f08d91980cccb49e83cb4fd/vl_convert_python-{{ version }}-cp37-abi3-macosx_11_0_arm64.whl  # [arm64]
+  sha256: d0cbf7d8bafccf5a2f86ec16423618a4b82f55901c96ff5a7d162f37101d3607  # [arm64]
 
 build:
   number: 0
