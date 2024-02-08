@@ -17,9 +17,9 @@ build:
   number: 1
   script: {{ PYTHON }} -m pip install . -vv       # [not arm64 and not aarch64]
   script: cp vl_convert_python*/license_files/LICENSE . && {{ PYTHON }} -m pip install *.whl -vv   # [arm64 or aarch64]
-  binary_relocation: False                # [arm64]
-  detect_binary_files_with_prefix: False  # [arm64]
-  ignore_prefix_files: True               # [arm64]
+  binary_relocation: False                # [arm64 or aarch64]
+  detect_binary_files_with_prefix: False  # [arm64 or aarch64]
+  ignore_prefix_files: True               # [arm64 or aarch64]
 
 requirements:
   build:
@@ -52,11 +52,11 @@ about:
   summary: Convert Vega-Lite chart specifications to SVG, PNG, or Vega
   license: BSD-3-Clause
   license_file:
-    - LICENSE                                     # [arm64]
-    - vl-convert-python/LICENSE                   # [not arm64]
-    - vl-convert-python/thirdparty_font.md        # [not arm64]
-    - vl-convert-python/thirdparty_javascript.md  # [not arm64]
-    - vl-convert-python/thirdparty_rust.yaml      # [not arm64]
+    - LICENSE                                     # [arm64 or aarch64]
+    - vl-convert-python/LICENSE                   # [not arm64 and not aarch64]
+    - vl-convert-python/thirdparty_font.md        # [not arm64 and not aarch64]
+    - vl-convert-python/thirdparty_javascript.md  # [not arm64 and not aarch64]
+    - vl-convert-python/thirdparty_rust.yaml      # [not arm64 and not aarch64]
 
 extra:
   recipe-maintainers:
