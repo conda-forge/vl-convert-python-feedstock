@@ -20,6 +20,7 @@ build:
   binary_relocation: False                # [arm64 or aarch64]
   detect_binary_files_with_prefix: False  # [arm64 or aarch64]
   ignore_prefix_files: True               # [arm64 or aarch64]
+  skip: true   # [aarch64 and python_impl == 'pypy']
 
 requirements:
   build:
