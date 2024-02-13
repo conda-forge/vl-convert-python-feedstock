@@ -6,18 +6,21 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/vl_convert_python-{{ version }}.tar.gz  # [not arm64]
-  sha256: 1adeaa46041ccff47fee0119b136f5e12211d56726a142fc78cb14ad3c141e09                              # [not arm64]
-  url: https://files.pythonhosted.org/packages/16/03/f6be01a7272b3f944024ae7207d425eaea0285620e88041cc315e18516a9/vl_convert_python-{{ version }}-cp37-abi3-macosx_11_0_arm64.whl  # [arm64]
-  sha256: 2adec7f87bea3a15a991e7a28642c2758ca224cb78d024b1d47e00f02fd9c97f  # [arm64]
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/vl_convert_python-{{ version }}.tar.gz  # [not arm64 and not aarch64]
+  sha256: 1adeaa46041ccff47fee0119b136f5e12211d56726a142fc78cb14ad3c141e09                              # [not arm64 and not aarch64]
+  url: https://files.pythonhosted.org/packages/28/a9/769373599834073a6a9fee47191c89c993f82612c5f8580a3c08de6dbce0/vl_convert_python-{{ version }}-cp37-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl  # [linux and aarch64]
+  sha256: 2c37b349689d83ccc449a0063ff3804fe28d21c103cfa36e284882ee1d128de2  # [linux and aarch64]
+  url: https://files.pythonhosted.org/packages/16/03/f6be01a7272b3f944024ae7207d425eaea0285620e88041cc315e18516a9/vl_convert_python-{{ version }}-cp37-abi3-macosx_11_0_arm64.whl  # [osx and arm64]
+  sha256: 2adec7f87bea3a15a991e7a28642c2758ca224cb78d024b1d47e00f02fd9c97f  # [osx and arm64]
 
 build:
-  number: 0
-  script: {{ PYTHON }} -m pip install . -vv       # [not arm64]
-  script: cp vl_convert_python*/license_files/LICENSE . && {{ PYTHON }} -m pip install *.whl -vv   # [arm64]
-  binary_relocation: False                # [arm64]
-  detect_binary_files_with_prefix: False  # [arm64]
-  ignore_prefix_files: True               # [arm64]
+  number: 1
+  script: {{ PYTHON }} -m pip install . -vv       # [not arm64 and not aarch64]
+  script: cp vl_convert_python*/license_files/LICENSE . && {{ PYTHON }} -m pip install *.whl -vv   # [arm64 or aarch64]
+  binary_relocation: False                # [arm64 or aarch64]
+  detect_binary_files_with_prefix: False  # [arm64 or aarch64]
+  ignore_prefix_files: True               # [arm64 or aarch64]
+  skip: true   # [aarch64 and python_impl == 'pypy']
 
 requirements:
   build:
@@ -50,11 +53,11 @@ about:
   summary: Convert Vega-Lite chart specifications to SVG, PNG, or Vega
   license: BSD-3-Clause
   license_file:
-    - LICENSE                                     # [arm64]
-    - vl-convert-python/LICENSE                   # [not arm64]
-    - vl-convert-python/thirdparty_font.md        # [not arm64]
-    - vl-convert-python/thirdparty_javascript.md  # [not arm64]
-    - vl-convert-python/thirdparty_rust.yaml      # [not arm64]
+    - LICENSE                                     # [arm64 or aarch64]
+    - vl-convert-python/LICENSE                   # [not arm64 and not aarch64]
+    - vl-convert-python/thirdparty_font.md        # [not arm64 and not aarch64]
+    - vl-convert-python/thirdparty_javascript.md  # [not arm64 and not aarch64]
+    - vl-convert-python/thirdparty_rust.yaml      # [not arm64 and not aarch64]
 
 extra:
   recipe-maintainers:
