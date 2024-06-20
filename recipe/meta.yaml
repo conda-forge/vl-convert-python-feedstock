@@ -41,7 +41,8 @@ requirements:
     - maturin
   run:
     - python
-    - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.13") }}  # [osx and x86_64]
+  c_stdlib_version:  # [osx and x86_64]
+    - 10.13          # [osx and x86_64]
 
 test:
   imports:
