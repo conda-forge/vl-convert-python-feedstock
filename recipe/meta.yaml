@@ -9,8 +9,8 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/vl_convert_python-{{ version }}.tar.gz  # [not arm64 and not aarch64]
   sha256: 264d6f2338c7d3474e60c6907cca016b880b0c1c9be302bb84abc6690188a7e9                              # [not arm64 and not aarch64]
-  patches: # [not arm64 and not aarch64]
-    - 01-fix-libffi-msvc.patch     # [not arm64 and not aarch64]
+  patches:  # [not arm64 and not aarch64]
+    - 01-fix-libffi-msvc.patch  # [not arm64 and not aarch64]
 
   url: https://files.pythonhosted.org/packages/1b/83/995dc804b1e647800e64bf0ed7b813f4e2b61b4edb16d0a335638c332fb6/vl_convert_python-{{ version }}-cp37-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.{{ whl }}  # [linux and aarch64]
   sha256: 6c1f61306ecd5a8040c0badf32e733a46f0553de74a6f341a8ff392a95b4daac  # [linux and aarch64]
