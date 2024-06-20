@@ -1,7 +1,11 @@
+c_stdlib:
+- vs
 channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
+libffi:
+- '3.4'
 m2w64_c_compiler:
 - m2w64-toolchain
 pin_run_as_build:
