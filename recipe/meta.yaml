@@ -35,6 +35,7 @@ requirements:
     - cmake
     - rust >=1.64.0
     - protobuf
+    - libffi  # [win]
   host:
     - python
     - pip
