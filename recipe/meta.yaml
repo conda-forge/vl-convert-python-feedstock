@@ -1,5 +1,5 @@
 {% set name = "vl-convert-python" %}
-{% set version = "1.2.3" %}
+{% set version = "1.4.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/vl_convert_python-{{ version }}.tar.gz  # [not arm64 and not aarch64]
-  sha256: 1adeaa46041ccff47fee0119b136f5e12211d56726a142fc78cb14ad3c141e09                              # [not arm64 and not aarch64]
-  url: https://files.pythonhosted.org/packages/28/a9/769373599834073a6a9fee47191c89c993f82612c5f8580a3c08de6dbce0/vl_convert_python-{{ version }}-cp37-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl  # [linux and aarch64]
-  sha256: 2c37b349689d83ccc449a0063ff3804fe28d21c103cfa36e284882ee1d128de2  # [linux and aarch64]
-  url: https://files.pythonhosted.org/packages/16/03/f6be01a7272b3f944024ae7207d425eaea0285620e88041cc315e18516a9/vl_convert_python-{{ version }}-cp37-abi3-macosx_11_0_arm64.whl  # [osx and arm64]
-  sha256: 2adec7f87bea3a15a991e7a28642c2758ca224cb78d024b1d47e00f02fd9c97f  # [osx and arm64]
+  sha256: 264d6f2338c7d3474e60c6907cca016b880b0c1c9be302bb84abc6690188a7e9                              # [not arm64 and not aarch64]
+  url: https://files.pythonhosted.org/packages/1b/83/995dc804b1e647800e64bf0ed7b813f4e2b61b4edb16d0a335638c332fb6/vl_convert_python-{{ version }}-cp37-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl  # [linux and aarch64]
+  sha256: 6c1f61306ecd5a8040c0badf32e733a46f0553de74a6f341a8ff392a95b4daac  # [linux and aarch64]
+  url: https://files.pythonhosted.org/packages/2d/7b/cb16ad3e2f79a38187fc484e704698ffb491e9fcd639c6a907cc61a62d2b/vl_convert_python-{{ version }}-cp37-abi3-macosx_11_0_arm64.whl  # [osx and arm64]
+  sha256: 6c86472dd1149010f66116b2a98943c8e7fa48a89667428c187a2ea52015f3c8  # [osx and arm64]
 
 build:
   number: 1
