@@ -1,5 +1,6 @@
 {% set name = "vl-convert-python" %}
 {% set version = "1.5.0" %}
+{% set whl = "whl" %}
 
 package:
   name: {{ name|lower }}
@@ -8,11 +9,13 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/vl_convert_python-{{ version }}.tar.gz  # [not arm64 and not aarch64]
   sha256: 6d493952f568c85a445c2e515371a61f7ff2d09f5585e915abceec3efcd5826b                              # [not arm64 and not aarch64]
+  patches:  # [not arm64 and not aarch64]
+    - 01-fix-libffi-msvc.patch  # [not arm64 and not aarch64]
 
-  url: https://files.pythonhosted.org/packages/58/fd/96bf010819e8c1ebeb181e0a25d3bfcc0f1d2b649134dea7b2599ea139f0/vl_convert_python-{{ version }}-cp37-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl  # [linux and aarch64]
+  url: https://files.pythonhosted.org/packages/58/fd/96bf010819e8c1ebeb181e0a25d3bfcc0f1d2b649134dea7b2599ea139f0/vl_convert_python-{{ version }}-cp37-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.{{ whl }}  # [linux and aarch64]
   sha256: 0244666476817c1f772d26286485c24ce2218fafd9b4f1913a6ef21857083531  # [linux and aarch64]
 
-  url: https://files.pythonhosted.org/packages/bd/b4/8d324ab1338278c741e0c940999bbad58cefa4b38e5443b983044203a957/vl_convert_python-{{ version }}-cp37-abi3-macosx_11_0_arm64.whl  # [osx and arm64]
+  url: https://files.pythonhosted.org/packages/bd/b4/8d324ab1338278c741e0c940999bbad58cefa4b38e5443b983044203a957/vl_convert_python-{{ version }}-cp37-abi3-macosx_11_0_arm64.{{ whl }}  # [osx and arm64]
   sha256: fba51e437a09aa0fb04e1931a4b851231053aeb14715a3653e272c829aac1dc4  # [osx and arm64]
 
 build:
@@ -23,26 +26,24 @@ build:
   detect_binary_files_with_prefix: False  # [arm64 or aarch64]
   ignore_prefix_files: True               # [arm64 or aarch64]
   skip: true   # [aarch64 and python_impl == 'pypy']
-
 requirements:
   build:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - {{ compiler('c') }}        # [not win]
     - {{ compiler('m2w64_c') }}  # [win]
+    - {{ stdlib('c') }}
     - make                       # [not win]
     - cmake
     - rust >=1.64.0
-    - python                     # [build_platform != target_platform]
-    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - protobuf
+    - libffi  # [win]
   host:
     - python
     - pip
     - maturin
   run:
     - python
-    - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.13") }}  # [osx and x86_64]
 
 test:
   imports:
