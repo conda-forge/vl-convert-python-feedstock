@@ -1,5 +1,5 @@
 {% set name = "vl-convert-python" %}
-{% set version = "1.5.0" %}
+{% set version = "1.5.1" %}
 {% set whl = "whl" %}
 
 package:
@@ -12,11 +12,11 @@ source:
   patches:  # [not arm64 and not aarch64]
     - 01-fix-libffi-msvc.patch  # [not arm64 and not aarch64]
 
-  url: https://files.pythonhosted.org/packages/58/fd/96bf010819e8c1ebeb181e0a25d3bfcc0f1d2b649134dea7b2599ea139f0/vl_convert_python-{{ version }}-cp37-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.{{ whl }}  # [linux and aarch64]
-  sha256: 0244666476817c1f772d26286485c24ce2218fafd9b4f1913a6ef21857083531  # [linux and aarch64]
+  url: https://files.pythonhosted.org/packages/00/70/c09e6ea49e963fdf68f28fe45ea2d603cbcaf5716c29bace894b30e3c8b0/vl_convert_python-{{ version }}-cp37-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.{{ whl }}  # [linux and aarch64]
+  sha256: d72fbcf9a70d3543654532d773cabc87e07eee60cbbd9f235942f151840a539e  # [linux and aarch64]
 
-  url: https://files.pythonhosted.org/packages/bd/b4/8d324ab1338278c741e0c940999bbad58cefa4b38e5443b983044203a957/vl_convert_python-{{ version }}-cp37-abi3-macosx_11_0_arm64.{{ whl }}  # [osx and arm64]
-  sha256: fba51e437a09aa0fb04e1931a4b851231053aeb14715a3653e272c829aac1dc4  # [osx and arm64]
+  url: https://files.pythonhosted.org/packages/e4/ae/6ef3e62834e289f974a6256c1ede3a610297c1ef6565b3ca67cbd1fd7d86/vl_convert_python-{{ version }}-cp37-abi3-macosx_11_0_arm64.{{ whl }}  # [osx and arm64]
+  sha256: fe7038cb924f554ca17b66d56e253921a9b6b44fc6b42c2868ac42cd9c3b5459  # [osx and arm64]
 
 build:
   number: 0
