@@ -58,11 +58,12 @@ about:
   summary: Convert Vega-Lite chart specifications to SVG, PNG, or Vega
   license: BSD-3-Clause
   license_file:
-    - LICENSE                                     # [arm64 or aarch64]
+    - LICENSE                                     # [not arm64 and not aarch64]
     - vl-convert-python/LICENSE                   # [not arm64 and not aarch64]
     - vl-convert-python/thirdparty_font.md        # [not arm64 and not aarch64]
     - vl-convert-python/thirdparty_javascript.md  # [not arm64 and not aarch64]
     - vl-convert-python/thirdparty_rust.yaml      # [not arm64 and not aarch64]
+    - vl_convert_python-{{ version }}.dist-info/licenses/LICENSE  # [arm64 or aarch64]
 
 extra:
   recipe-maintainers:
