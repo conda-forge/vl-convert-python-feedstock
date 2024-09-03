@@ -19,7 +19,7 @@ source:
   sha256: cf0ede6afa4cdfc39d0649beeedad9b93790d8bbcceab125c0d45b5a6b6e77f3  # [osx and arm64]
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv       # [not arm64 and not aarch64]
   script: cp vl_convert_python*/licenses/LICENSE . && {{ PYTHON }} -m pip install *.whl -vv   # [arm64 or aarch64]
   binary_relocation: False                # [arm64 or aarch64]
