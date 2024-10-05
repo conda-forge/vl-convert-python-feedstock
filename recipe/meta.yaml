@@ -8,8 +8,8 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/vl_convert_python-{{ version }}.tar.gz  # [not arm64 and not aarch64]
-  sha256: bc9e1f8ca0d8d3b3789c66e37cd6a8cf0a83406427d5143133346c2b5004485b                              # [not arm64 and not aarch64]
-  patches:  # [not arm64 and not aarch64]
+  sha256: bc9e1f8ca0d8d3b3789c66e37cd6a8cf0a83406427d5143133346c2b5004485b  # [not arm64 and not aarch64]
+  patches:   # [not arm64 and not aarch64]
     - 01-fix-libffi-msvc.patch  # [not arm64 and not aarch64]
 
   url: https://files.pythonhosted.org/packages/95/0f/139568d71fadcb1be697acd2ccd0b79bd1553ca833d4448312191cd33654/vl_convert_python-{{ version }}-cp37-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.{{ whl }}  # [linux and aarch64]
@@ -20,12 +20,12 @@ source:
 
 build:
   number: 0
-  script: {{ PYTHON }} -m pip install . -vv       # [not arm64 and not aarch64]
-  script: cp vl_convert_python*/licenses/LICENSE . && {{ PYTHON }} -m pip install *.whl -vv   # [arm64 or aarch64]
-  binary_relocation: False                # [arm64 or aarch64]
-  detect_binary_files_with_prefix: False  # [arm64 or aarch64]
-  ignore_prefix_files: True               # [arm64 or aarch64]
-  skip: true   # [aarch64 and python_impl == 'pypy']
+  script: {{ PYTHON }} -m pip install . -vv  # [not arm64 and not aarch64]
+  script: cp vl_convert_python*/licenses/LICENSE . && {{ PYTHON }} -m pip install *.whl -vv  # [arm64 or aarch64]
+  binary_relocation: false  # [arm64 or aarch64]
+  detect_binary_files_with_prefix: false  # [arm64 or aarch64]
+  ignore_prefix_files: true  # [arm64 or aarch64]
+  skip: true  # [aarch64 and python_impl == 'pypy']
 requirements:
   build:
     - python                                 # [build_platform != target_platform]
