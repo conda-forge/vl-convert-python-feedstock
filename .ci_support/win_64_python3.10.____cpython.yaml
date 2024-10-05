@@ -6,10 +6,6 @@ channel_targets:
 - conda-forge main
 libffi:
 - '3.4'
-m2w64_c_compiler:
-- gcc
-m2w64_c_compiler_version:
-- '13'
 pin_run_as_build:
   python:
     min_pin: x.x
