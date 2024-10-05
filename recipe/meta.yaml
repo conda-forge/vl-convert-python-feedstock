@@ -1,5 +1,5 @@
 {% set name = "vl-convert-python" %}
-{% set version = "1.6.1" %}
+{% set version = "1.7.0" %}
 {% set whl = "whl" %}
 
 package:
@@ -8,15 +8,15 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/vl_convert_python-{{ version }}.tar.gz  # [not arm64 and not aarch64]
-  sha256: b70935dbf792118a42aae27b7465359cbc014e30e63ef6ba7a0f8974707d9c1c                              # [not arm64 and not aarch64]
+  sha256: bc9e1f8ca0d8d3b3789c66e37cd6a8cf0a83406427d5143133346c2b5004485b                              # [not arm64 and not aarch64]
   patches:  # [not arm64 and not aarch64]
     - 01-fix-libffi-msvc.patch  # [not arm64 and not aarch64]
 
-  url: https://files.pythonhosted.org/packages/0d/49/826b73cbe8440522fc24fe5360f4c98c8a7be8e1cc8abad1fac3b11296e6/vl_convert_python-{{ version }}-cp37-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.{{ whl }}  # [linux and aarch64]
-  sha256: 28532e54d76a99eedcaec39b98b0b87f09ad24b23a2e129438cfbd27fd0ec001  # [linux and aarch64]
+  url: https://files.pythonhosted.org/packages/95/0f/139568d71fadcb1be697acd2ccd0b79bd1553ca833d4448312191cd33654/vl_convert_python-{{ version }}-cp37-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.{{ whl }}  # [linux and aarch64]
+  sha256: 962100d7670b9d35f9bb9745cdf590412f62f57c134b4a142340ba93a4dbddba  # [linux and aarch64]
 
-  url: https://files.pythonhosted.org/packages/04/f5/f62f594208b3c597016c810fddd7c14ea4c185ae937cf5b87707210a2003/vl_convert_python-{{ version }}-cp37-abi3-macosx_11_0_arm64.{{ whl }}  # [osx and arm64]
-  sha256: cf0ede6afa4cdfc39d0649beeedad9b93790d8bbcceab125c0d45b5a6b6e77f3  # [osx and arm64]
+  url: https://files.pythonhosted.org/packages/dc/50/4b8b500f0b3c0b24ef3bec01563de412e95dbf27cfe53e403e6fa8514525/vl_convert_python-{{ version }}-cp37-abi3-macosx_11_0_arm64.{{ whl }}  # [osx and arm64]
+  sha256: 51f99c58b1d0d74126455ece7d41972740cb4430b8dfdf7e0908270eed5be32d  # [osx and arm64]
 
 build:
   number: 0
@@ -31,7 +31,6 @@ requirements:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - {{ compiler('c') }}        # [not win]
-    - {{ compiler('m2w64_c') }}  # [win]
     - {{ stdlib('c') }}
     - make                       # [not win]
     - cmake
