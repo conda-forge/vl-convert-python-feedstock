@@ -9,14 +9,12 @@ package:
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/vl_convert_python-{{ version }}.tar.gz  # [not arm64 and not aarch64]
   sha256: ceca613ca5551c55270a15ca48d0f3a7de1e949e0f127310e9b0f6570ea3fbbb  # [not arm64 and not aarch64]
-  patches:   # [not arm64 and not aarch64]
-    - 01-fix-libffi-msvc.patch  # [not arm64 and not aarch64]
 
-  url: https://files.pythonhosted.org/packages/15/08/06945bff9655c5b0520a8d1b2550cd8007e106ebec45a33840035420e0d2/vl_convert_python-{{ version }}.tar.gz  # [linux and aarch64]
-  sha256: ceca613ca5551c55270a15ca48d0f3a7de1e949e0f127310e9b0f6570ea3fbbb  # [linux and aarch64]
+  url: https://files.pythonhosted.org/packages/09/fa/1dd944c9e9898e59e31c385bdce215aca543acc555de20b8bf4dc60ddb89/vl_convert_python-{{ version }}.tar.gz  # [linux and aarch64]
+  sha256: 3388e3913287867b3553c10f81ca2d85268216a5a75e7c71b9c1b59887c1977e  # [linux and aarch64]
 
-  url: https://files.pythonhosted.org/packages/15/08/06945bff9655c5b0520a8d1b2550cd8007e106ebec45a33840035420e0d2/vl_convert_python-{{ version }}.tar.gz  # [osx and arm64]
-  sha256: ceca613ca5551c55270a15ca48d0f3a7de1e949e0f127310e9b0f6570ea3fbbb  # [osx and arm64]
+  url: https://files.pythonhosted.org/packages/42/e2/325e6b5895482b2534e7462c012f237c66ffb02fb3af45eec0accab2f8d4/vl_convert_python-{{ version }}.tar.gz  # [osx and arm64]
+  sha256: 81f6380019ceadf070a79f85aa624475a6568093f70de0e151a32e91ecbcaacf  # [osx and arm64]
 
 build:
   number: 0
