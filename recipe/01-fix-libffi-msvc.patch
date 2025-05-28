@@ -9,7 +9,7 @@ index 05d29d4..d22ab88 100644
 +++ b/Cargo2.toml
 @@ -3,6 +3,9 @@ resolver = "2"  # Needed for proper wgpu compilation
 
-members = ["vl-convert-rs", "vl-convert-python"]
+ members = ["vl-convert-rs", "vl-convert-python"]
 
 +[patch.crates-io]
 +libffi-sys = { git = "https://github.com/tov/libffi-rs", rev = "d0704d634b6f3ffef5b6fc7e07fe965a1cff5c7b" }
