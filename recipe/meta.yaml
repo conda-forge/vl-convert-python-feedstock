@@ -1,5 +1,5 @@
 {% set name = "vl-convert-python" %}
-{% set version = "1.7.0" %}
+{% set version = "1.8.0" %}
 {% set whl = "whl" %}
 
 package:
@@ -7,19 +7,19 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/vl_convert_python-{{ version }}.tar.gz  # [not arm64 and not aarch64]
-  sha256: bc9e1f8ca0d8d3b3789c66e37cd6a8cf0a83406427d5143133346c2b5004485b  # [not arm64 and not aarch64]
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/vl_convert_python-{{ version }}.tar.gz  # [not arm64 and not aarch64]
+  sha256: ceca613ca5551c55270a15ca48d0f3a7de1e949e0f127310e9b0f6570ea3fbbb  # [not arm64 and not aarch64]
   patches:   # [not arm64 and not aarch64]
     - 01-fix-libffi-msvc.patch  # [not arm64 and not aarch64]
 
-  url: https://files.pythonhosted.org/packages/95/0f/139568d71fadcb1be697acd2ccd0b79bd1553ca833d4448312191cd33654/vl_convert_python-{{ version }}-cp37-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.{{ whl }}  # [linux and aarch64]
-  sha256: 962100d7670b9d35f9bb9745cdf590412f62f57c134b4a142340ba93a4dbddba  # [linux and aarch64]
+  url: https://files.pythonhosted.org/packages/09/fa/1dd944c9e9898e59e31c385bdce215aca543acc555de20b8bf4dc60ddb89/vl_convert_python-{{ version }}-cp37-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.{{ whl }}  # [linux and aarch64]
+  sha256: 3388e3913287867b3553c10f81ca2d85268216a5a75e7c71b9c1b59887c1977e  # [linux and aarch64]
 
-  url: https://files.pythonhosted.org/packages/dc/50/4b8b500f0b3c0b24ef3bec01563de412e95dbf27cfe53e403e6fa8514525/vl_convert_python-{{ version }}-cp37-abi3-macosx_11_0_arm64.{{ whl }}  # [osx and arm64]
-  sha256: 51f99c58b1d0d74126455ece7d41972740cb4430b8dfdf7e0908270eed5be32d  # [osx and arm64]
+  url: https://files.pythonhosted.org/packages/42/e2/325e6b5895482b2534e7462c012f237c66ffb02fb3af45eec0accab2f8d4/vl_convert_python-{{ version }}-cp37-abi3-macosx_11_0_arm64.{{ whl }}  # [osx and arm64]
+  sha256: 81f6380019ceadf070a79f85aa624475a6568093f70de0e151a32e91ecbcaacf  # [osx and arm64]
 
 build:
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . -vv  # [not arm64 and not aarch64]
   script: cp vl_convert_python*/licenses/LICENSE . && {{ PYTHON }} -m pip install *.whl -vv  # [arm64 or aarch64]
   binary_relocation: false  # [arm64 or aarch64]
