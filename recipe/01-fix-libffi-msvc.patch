@@ -1,19 +1,13 @@
-fix libffi builds on MSVC
+Use system libffi on MSVC
 
-Credit to the deno conda-forge feedstock: https://github.com/conda-forge/deno-feedstock/blob/main/recipe/01-fix-libffi-msvc.patch
----
-
-diff --git a/Cargo.toml b/Cargo.toml
-index 05d29d4..d22ab88 100644
---- a/Cargo.toml
-+++ b/Cargo2.toml
-@@ -3,6 +3,9 @@ resolver = "2"  # Needed for proper wgpu compilation
-
- members = ["vl-convert-rs", "vl-convert-python"]
-
-+[patch.crates-io]
-+libffi-sys = { git = "https://github.com/tov/libffi-rs", branch = "master" }
+--- a/vl-convert-rs/Cargo.toml
++++ b/vl-convert-rs/Cargo.toml
+@@ -52,3 +52,8 @@ lazy_static = { workspace = true }
+ [target.'cfg(target_os = "macos")'.dependencies.libffi]
+ version = "^3.2.0"
+ features = ["system"]
 +
- [profile.release]
- strip = true  # Automatically strip symbols from the binary
- opt-level = "z"  # Optimize for size
++# Enable system libffi on Windows for conda-build compatibility
++[target.'cfg(target_os = "windows")'.dependencies.libffi]
++version = "^3.2.0"
++features = ["system"]
