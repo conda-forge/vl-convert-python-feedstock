@@ -12,10 +12,10 @@ source:
   patches:   # [not arm64 and not aarch64]
     - 01-fix-libffi-msvc.patch  # [not arm64 and not aarch64]
 
-  url: https://files.pythonhosted.org/packages/ce/49/7ecb1bbb29e5b4bddb35672f9f1a0799894b20d4dc213e2223f35a06ad8b/vl_convert_python-{{ version }}-cp37-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl  # [linux and aarch64]
+  url: https://files.pythonhosted.org/packages/ce/49/7ecb1bbb29e5b4bddb35672f9f1a0799894b20d4dc213e2223f35a06ad8b/vl_convert_python-{{ version }}-cp37-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.{{ whl }}  # [linux and aarch64]
   sha256: f35bbdc26c4495447c547d10018d967d1eeb20772d5e285a92502277da92e0ac  # [linux and aarch64]
 
-  url: https://files.pythonhosted.org/packages/f1/71/3f029505159e6960b5a01006c1318e88a86301bd9272e9c5d52b3f9439c7/vl_convert_python-{{ version }}-cp37-abi3-macosx_11_0_arm64.whl  # [osx and arm64]
+  url: https://files.pythonhosted.org/packages/f1/71/3f029505159e6960b5a01006c1318e88a86301bd9272e9c5d52b3f9439c7/vl_convert_python-{{ version }}-cp37-abi3-macosx_11_0_arm64.{{ whl }}  # [osx and arm64]
   sha256: 9a5ca7c88e89ff6338de43cd039b9f0f809b18c661a7e8134ba03a48c04e1c03  # [osx and arm64]
 
 build:
