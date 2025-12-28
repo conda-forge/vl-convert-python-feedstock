@@ -1,5 +1,5 @@
 {% set name = "vl-convert-python" %}
-{% set version = "1.8.0" %}
+{% set version = "1.9.0" %}
 {% set whl = "whl" %}
 
 package:
@@ -8,18 +8,18 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/vl_convert_python-{{ version }}.tar.gz  # [not arm64 and not aarch64]
-  sha256: ceca613ca5551c55270a15ca48d0f3a7de1e949e0f127310e9b0f6570ea3fbbb  # [not arm64 and not aarch64]
+  sha256: bbf4eb9ac9aa9f32f6fdb689391c914dff311846365658ac70bc5b30f30d57cd  # [not arm64 and not aarch64]
   patches:   # [not arm64 and not aarch64]
     - 01-fix-libffi-msvc.patch  # [not arm64 and not aarch64]
 
-  url: https://files.pythonhosted.org/packages/09/fa/1dd944c9e9898e59e31c385bdce215aca543acc555de20b8bf4dc60ddb89/vl_convert_python-{{ version }}-cp37-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.{{ whl }}  # [linux and aarch64]
-  sha256: 3388e3913287867b3553c10f81ca2d85268216a5a75e7c71b9c1b59887c1977e  # [linux and aarch64]
+  url: https://files.pythonhosted.org/packages/ce/49/7ecb1bbb29e5b4bddb35672f9f1a0799894b20d4dc213e2223f35a06ad8b/vl_convert_python-{{ version }}-cp37-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.{{ whl }}  # [linux and aarch64]
+  sha256: f35bbdc26c4495447c547d10018d967d1eeb20772d5e285a92502277da92e0ac  # [linux and aarch64]
 
-  url: https://files.pythonhosted.org/packages/42/e2/325e6b5895482b2534e7462c012f237c66ffb02fb3af45eec0accab2f8d4/vl_convert_python-{{ version }}-cp37-abi3-macosx_11_0_arm64.{{ whl }}  # [osx and arm64]
-  sha256: 81f6380019ceadf070a79f85aa624475a6568093f70de0e151a32e91ecbcaacf  # [osx and arm64]
+  url: https://files.pythonhosted.org/packages/f1/71/3f029505159e6960b5a01006c1318e88a86301bd9272e9c5d52b3f9439c7/vl_convert_python-{{ version }}-cp37-abi3-macosx_11_0_arm64.{{ whl }}  # [osx and arm64]
+  sha256: 9a5ca7c88e89ff6338de43cd039b9f0f809b18c661a7e8134ba03a48c04e1c03  # [osx and arm64]
 
 build:
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . -vv  # [not arm64 and not aarch64]
   script: cp vl_convert_python*/licenses/LICENSE . && {{ PYTHON }} -m pip install *.whl -vv  # [arm64 or aarch64]
   binary_relocation: false  # [arm64 or aarch64]
