@@ -1,5 +1,5 @@
 {% set name = "vl-convert-python" %}
-{% set version = "1.9.0" %}
+{% set version = "1.9.0.post1" %}
 {% set whl = "whl" %}
 
 package:
@@ -8,15 +8,15 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/vl_convert_python-{{ version }}.tar.gz  # [not arm64 and not aarch64]
-  sha256: bbf4eb9ac9aa9f32f6fdb689391c914dff311846365658ac70bc5b30f30d57cd  # [not arm64 and not aarch64]
+  sha256: a5b06b3128037519001166f5341ec7831e19fbd7f3a5f78f73d557ac2d5859ef  # [not arm64 and not aarch64]
   patches:   # [not arm64 and not aarch64]
     - 01-fix-libffi-msvc.patch  # [not arm64 and not aarch64]
 
-  url: https://files.pythonhosted.org/packages/ce/49/7ecb1bbb29e5b4bddb35672f9f1a0799894b20d4dc213e2223f35a06ad8b/vl_convert_python-{{ version }}-cp37-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.{{ whl }}  # [linux and aarch64]
-  sha256: f35bbdc26c4495447c547d10018d967d1eeb20772d5e285a92502277da92e0ac  # [linux and aarch64]
+  url: https://files.pythonhosted.org/packages/93/89/36722344d1758ec2106f4e8eca980f173cfe8f8d0358c1b77cc5d2e035a4/vl_convert_python-{{ version }}.tar.gz  # [linux and aarch64]
+  sha256: a5b06b3128037519001166f5341ec7831e19fbd7f3a5f78f73d557ac2d5859ef  # [linux and aarch64]
 
-  url: https://files.pythonhosted.org/packages/f1/71/3f029505159e6960b5a01006c1318e88a86301bd9272e9c5d52b3f9439c7/vl_convert_python-{{ version }}-cp37-abi3-macosx_11_0_arm64.{{ whl }}  # [osx and arm64]
-  sha256: 9a5ca7c88e89ff6338de43cd039b9f0f809b18c661a7e8134ba03a48c04e1c03  # [osx and arm64]
+  url: https://files.pythonhosted.org/packages/93/89/36722344d1758ec2106f4e8eca980f173cfe8f8d0358c1b77cc5d2e035a4/vl_convert_python-{{ version }}.tar.gz  # [osx and arm64]
+  sha256: a5b06b3128037519001166f5341ec7831e19fbd7f3a5f78f73d557ac2d5859ef  # [osx and arm64]
 
 build:
   number: 0
