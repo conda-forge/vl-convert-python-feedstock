@@ -34,7 +34,7 @@ requirements:
     - {{ stdlib('c') }}
     - make                       # [not win]
     - cmake
-    - rust >=1.64.0
+    - rust >=1.81.0
     - protobuf
     - libffi  # [win]
   host:
