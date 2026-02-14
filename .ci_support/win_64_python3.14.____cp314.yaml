@@ -14,5 +14,7 @@ python:
 - 3.14.* *_cp314
 python_impl:
 - cpython
+sqlite:
+- '3'
 target_platform:
 - win-64
