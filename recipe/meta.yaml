@@ -20,9 +20,6 @@ source:
 
 build:
   number: 0
-  script: LIBSQLITE3_SYS_USE_PKG_CONFIG=1 AWS_LC_SYS_CMAKE_BUILDER=1 {{ PYTHON }} -m pip install . -vv  # [not arm64 and not aarch64 and not win]
-  script: set "LIBSQLITE3_SYS_USE_PKG_CONFIG=1" && set "AWS_LC_SYS_CMAKE_BUILDER=1" && {{ PYTHON }} -m pip install . -vv  # [win]
-  script: cp vl_convert_python*/licenses/LICENSE . && {{ PYTHON }} -m pip install *.whl -vv  # [arm64 or aarch64]
   binary_relocation: false  # [arm64 or aarch64]
   detect_binary_files_with_prefix: false  # [arm64 or aarch64]
   ignore_prefix_files: true  # [arm64 or aarch64]
@@ -38,6 +35,7 @@ requirements:
     - rust >=1.81.0
     - protobuf
     - libffi  # [win]
+    - jq                     # [linux and x86_64]
     - libclang               # [linux and x86_64]
     - llvmdev                # [linux and x86_64]
     - nasm                   # [win]
