@@ -7,7 +7,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/vl_convert_python-{{ version }}.tar.gz  # [not arm64 and not aarch64]
+  url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/vl_convert_python-{{ version }}.tar.gz  # [not arm64 and not aarch64]
   sha256: bfb5e52ea3a5d972228b096b18c8e18db4ab2b4edeed13674a0a3be05e42ddac  # [not arm64 and not aarch64]
   patches:   # [not arm64 and not aarch64]
     - 01-fix-libffi-msvc.patch  # [not arm64 and not aarch64]
@@ -19,7 +19,7 @@ source:
   sha256: 8779a5a7916d6ab904e30f2e9eee122b96d43cb5e1b45a144f370a8a229d4881  # [osx and arm64]
 
 build:
-  number: 0
+  number: 1
   binary_relocation: false  # [arm64 or aarch64]
   detect_binary_files_with_prefix: false  # [arm64 or aarch64]
   ignore_prefix_files: true  # [arm64 or aarch64]
