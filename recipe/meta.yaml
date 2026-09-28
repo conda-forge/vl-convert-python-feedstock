@@ -1,31 +1,21 @@
 {% set name = "vl-convert-python" %}
 {% set version = "1.9.0.post1" %}
-{% set whl = "whl" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/vl_convert_python-{{ version }}.tar.gz  # [not arm64 and not aarch64]
-  sha256: a5b06b3128037519001166f5341ec7831e19fbd7f3a5f78f73d557ac2d5859ef  # [not arm64 and not aarch64]
-  patches:   # [not arm64 and not aarch64]
-    - 01-fix-libffi-msvc.patch  # [not arm64 and not aarch64]
-
-  url: https://files.pythonhosted.org/packages/b8/e2/5645a1bc174c53ff8cd305ed76a4a76ba36e155302db20b42b7e78daeef8/vl_convert_python-{{version}}-cp37-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl  # [linux and aarch64]
-  sha256: e6ecfe4b7e2ea9e8c30fd6d6eaea3ef85475be1ad249407d9796dce4ecdb5b32  # [linux and aarch64]
-
-  url: https://files.pythonhosted.org/packages/62/e6/e7d0b538c2f0daaf120901dc113bd5d5d1fa51a9532fa5ffd90234e8c69e/vl_convert_python-{{version}}-cp37-abi3-macosx_11_0_arm64.whl  # [osx and arm64]
-  sha256: b0e7a3245f32addec7e7abeb1badf72b1513ed71ba1dba7aca853901217b3f4e  # [osx and arm64]
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/vl_convert_python-{{ version }}.tar.gz
+  sha256: a5b06b3128037519001166f5341ec7831e19fbd7f3a5f78f73d557ac2d5859ef
+  patches:
+    - 01-fix-libffi-msvc.patch
 
 build:
   number: 1
-  script: {{ PYTHON }} -m pip install . -vv  # [not arm64 and not aarch64]
-  script: cp vl_convert_python*/licenses/LICENSE . && {{ PYTHON }} -m pip install *.whl -vv  # [arm64 or aarch64]
-  binary_relocation: false  # [arm64 or aarch64]
-  detect_binary_files_with_prefix: false  # [arm64 or aarch64]
-  ignore_prefix_files: true  # [arm64 or aarch64]
+  script: {{ PYTHON }} -m pip install . -vv
   skip: true  # [aarch64 and python_impl == 'pypy']
+
 requirements:
   build:
     - python                                 # [build_platform != target_platform]
@@ -57,11 +47,10 @@ about:
   summary: Convert Vega-Lite chart specifications to SVG, PNG, or Vega
   license: BSD-3-Clause
   license_file:
-    - LICENSE                                     # [arm64 or aarch64]
-    - vl-convert-python/LICENSE                   # [not arm64 and not aarch64]
-    - vl-convert-python/thirdparty_font.md        # [not arm64 and not aarch64]
-    - vl-convert-python/thirdparty_javascript.md  # [not arm64 and not aarch64]
-    - vl-convert-python/thirdparty_rust.yaml      # [not arm64 and not aarch64]
+    - vl-convert-python/LICENSE
+    - vl-convert-python/thirdparty_font.md
+    - vl-convert-python/thirdparty_javascript.md
+    - vl-convert-python/thirdparty_rust.yaml
 
 extra:
   recipe-maintainers:
