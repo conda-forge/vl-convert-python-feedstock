@@ -12,7 +12,7 @@ source:
     - 01-fix-libffi-msvc.patch
 
 build:
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . -vv
   skip: true  # [aarch64 and python_impl == 'pypy']
 
